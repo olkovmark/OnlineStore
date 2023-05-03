@@ -1,4 +1,18 @@
+import * as dotenv from "dotenv";
+dotenv.config();
+
 import express from "express";
-const PORT = 5000;
-const server = express();
-server.listen(PORT, (e) => console.log("Start"));
+import { seguelize } from "./db.js";
+const app = express();
+
+const start = async () => {
+  try {
+    await seguelize.authenticate();
+    await seguelize.sync();
+    // app.listen(process.env.PORT, (e) => console.log("Start"));
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+start();
