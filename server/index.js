@@ -1,15 +1,21 @@
 import * as dotenv from "dotenv";
-dotenv.config();
 import models from "./models/models.js";
 import express from "express";
 import { seguelize } from "./db.js";
 import router from "./routers/index.js";
 import cors from "cors";
 
+import ErrorMidlewar from "./middleware/ErrorMidlewar.js";
+
+
+dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/api", router);
+
+
+app.use(ErrorMidlewar)
 
 const start = async () => {
   try {
