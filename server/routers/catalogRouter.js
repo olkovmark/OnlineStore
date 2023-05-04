@@ -1,8 +1,7 @@
 import { Router } from "express";
-import userController from "../controllers/userController.js";
+import catalogController from "../controllers/catalogController.js";
 
-export const userRouter = new Router();
+export const catalogRouter = new Router();
 
-userRouter.post("/regestration", userController.regestration);
-userRouter.post("/login", userController.login);
-userRouter.get("/auth", userController.auth);
+catalogRouter.post("", catalogController.create);
+catalogRouter.get("", catalogController.getALL);

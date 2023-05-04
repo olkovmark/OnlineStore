@@ -1,8 +1,7 @@
 import { Router } from "express";
-import userController from "../controllers/userController.js";
+import itemController from "../controllers/itemController.js";
 
-export const userRouter = new Router();
+export const itemRouter = new Router();
 
-userRouter.post("/regestration", userController.regestration);
-userRouter.post("/login", userController.login);
-userRouter.get("/auth", userController.auth);
+catalogRouter.post("", item.Controller.create);
+catalogRouter.get("", item.Controller.getAll);

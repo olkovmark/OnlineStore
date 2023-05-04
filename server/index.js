@@ -6,7 +6,7 @@ import router from "./routers/index.js";
 import cors from "cors";
 
 import ErrorMidlewar from "./middleware/ErrorMidlewar.js";
-
+import { Sequelize } from "sequelize";
 
 dotenv.config();
 const app = express();
@@ -14,12 +14,11 @@ app.use(cors());
 app.use(express.json());
 app.use("/api", router);
 
-
-app.use(ErrorMidlewar)
+app.use(ErrorMidlewar);
 
 const start = async () => {
   try {
-    // await seguelize.authenticate();
+    await seguelize.authenticate();
     // await seguelize.sync();
     app.listen(process.env.PORT, (e) =>
       console.log("Start:", process.env.PORT)
